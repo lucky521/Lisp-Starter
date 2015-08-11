@@ -51,3 +51,5 @@ Command IDE for Lisp
 
 [Lisp in small parts](http://lisp.plasticki.com/)
 
+[Lisp QuickStart](http://cs.gmu.edu/~sean/lisp/LispTutorial.html)
+
