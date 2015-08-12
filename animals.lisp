@@ -3,11 +3,9 @@
 lucky
 |#
 
-
 ; start
 
-(defparamter animals-tree '("Does it live in the sea?" " a dolphin" "a horse") )
-
+(defparameter animals-tree '("Does it live in the sea?" "a dolphin" "a horse"))
 
 
 (defun learn-animal (animal new-animal) ;two input
@@ -16,8 +14,8 @@ lucky
           (format nil "Give me a yes/no question to distinguish between ~a and ~a"
                   new-animal animal))))
     (if (capi:prompt-for-confirmation
-         (format nil "What would the answer be for ~a? new-animal?"))
-        (list question new-animal animal))
+         (format nil "What would the answer be for ~a?" new-animal))
+        (list question animal new-animal))
     (list question new-animal animal)))
 
 
@@ -28,21 +26,21 @@ lucky
 
 
 
-
 (defun make-guess (animal)
   (if (capi:prompt-for-confirmation (format nil "Is it ~a?" animal))
       (progn
         (capi:display-message "Ho ho!")
         animal)
-    (learn-animal 
+    (learn-animal animal (capi:prompt-for-string "What were you thinking of?"))))
 
 
 
-
-(defun annimals (tree)
+(defun animals (tree)
   (if (listp tree)
       (ask-question tree)
     (make-guess tree)))
 
 
 
+(defun play-animals ( )
+  (setf animals-tree (animals animals-tree)))
