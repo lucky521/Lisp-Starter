@@ -1,10 +1,9 @@
-
 #|
 lucky
 |#
-
 ; start
 
+; global variable
 (defparameter animals-tree '("Does it live in the sea?" "a dolphin" "a horse"))
 
 
@@ -36,11 +35,11 @@ lucky
 
 
 (defun animals (tree)
-  (if (listp tree)
+  (if (listp tree)   ; is a list or not
       (ask-question tree)
     (make-guess tree)))
 
 
 
-(defun play-animals ( )
+(defun play-animals ( ) ; interface
   (setf animals-tree (animals animals-tree)))
